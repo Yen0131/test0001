@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>超酷個人簡介</title>
+    <style>
+        /* 基本設置 */
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        body {
+            background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+            background-size: 400% 400%;
+            animation: rainbowBackground 10s ease infinite;
+            color: rgb(255, 255, 255);  /* 改為黑色文字 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+
+        /* 彩虹背景動畫 */
+        @keyframes rainbowBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* 容器設置 */
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        /* 彈窗廣告樣式 */
+        .ad-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 1.5em;
+        }
+
+        .ad-popup button {
+            background-color: #FF8C00;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .ad-popup button:hover {
+            background-color: #FFCC00;
+        }
+
+        /* 廣告內容 */
+        .ad-content {
+            margin-bottom: 20px;
+        }
+
+        /* 付費已屏蔽廣告 */
+        .pay-ad-popup {
+            margin-top: 20px;
+            font-size: 1.2em;
+            text-align: center;
+        }
+
+        /* 標題效果 */
+        header h1 {
+            font-size: 3em;
+            text-align: center;
+            color: #FF8C00;
+            text-shadow: 4px 4px 20px rgba(0, 0, 0, 0.5);
+            letter-spacing: 5px;
+        }
+
+        /* 內容區域 */
+        section {
+            background: rgba(0, 0, 0, 0.8);
+            margin: 20px 0;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        section:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            color: #FFCC00;
+            font-size: 2.5em;
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: 5px;
+        }
+
+        /* 可編輯內容 */
+        [contenteditable="true"] {
+            background-color: rgb(50, 46, 46);
+            border: 2px dashed #FF8C00;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 1.2em;
+        }
+
+        /* 社交媒體連結 */
+        a {
+            color: rgb(255, 255, 255); /* 改為黑色文字 */
+            font-weight: bold;
+            text-decoration: none;
+            padding: 12px 30px;
+            background-color: #FF8C00;
+            border-radius: 25px;
+        }
+
+        a:hover {
+            background-color: #FFCC00;
+            transform: translateY(-5px);
+        }
+
+        /* 社交媒體圖標 */
+        ul {
+            list-style: none;
+            text-align: center;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        ul li {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1 contenteditable="true">我的超酷個人簡介</h1>
+        </header>
+
+        <section>
+            <h2>姓名</h2>
+            <p contenteditable="true">你的名字</p>
+        </section>
+
+        <section>
+            <h2>自我介紹</h2>
+            <p id="text" contenteditable="true">你好，我是一個充滿創意的網頁設計師，熱愛探索新技術並實現有趣的設計。</p>
+        </section>
+
+        <section>
+            <h2>興趣與技能</h2>
+            <ul contenteditable="true">
+                <li>網頁設計</li>
+                <li>前端開發</li>
+                <li>UI/UX 設計</li>
+                <li>動畫效果</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>社交媒體</h2>
+            <ul>
+                <li><a href="https://www.facebook.com/你的帳號" contenteditable="true">Facebook</a></li>
+                <li><a href="https://twitter.com/你的帳號" contenteditable="true">Twitter</a></li>
+                <li><a href="https://www.instagram.com/你的帳號" contenteditable="true">Instagram</a></li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- 彈窗廣告 -->
+    <div class="ad-popup" id="adPopup">
+        <div class="ad-content">
+            <p>這是您的彈窗廣告！</p>
+            <button id="closeAdButton">關閉廣告</button>
+        </div>
+
+        <!-- 付費已屏蔽廣告按鈕 -->
+        <div class="pay-ad-popup">
+            <button id="payToBlockAds">付費已屏蔽廣告</button>
+        </div>
+    </div>
+
+    <!-- 確認購買對話框 -->
+    <div id="purchaseConfirmation" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.5); z-index: 10000;">
+        <p>確認購買? 金額：2000元</p>
+        <button id="confirmPurchase">確認</button>
+        <button id="cancelPurchase">取消</button>
+    </div>
+
+    <script>
+        // 顯示彈窗廣告
+        function showAd() {
+            const adPopup = document.getElementById('adPopup');
+            adPopup.style.display = 'flex';  // 顯示廣告
+        }
+
+        // 隱藏彈窗廣告
+        function closeAd() {
+            const adPopup = document.getElementById('adPopup');
+            adPopup.style.display = 'none';  // 隱藏廣告
+        }
+
+        // 設定每1秒顯示一次廣告
+        setInterval(showAd, 1000);
+
+        // 關閉廣告的事件監聽器
+        document.getElementById('closeAdButton').addEventListener('click', closeAd);
+
+        // 當按下「付費已屏蔽廣告」按鈕時，顯示確認購買對話框
+        document.getElementById('payToBlockAds').addEventListener('click', function() {
+            const purchaseConfirmation = document.getElementById('purchaseConfirmation');
+            purchaseConfirmation.style.display = 'block';
+        });
+
+        // 當按下確認購買
+        document.getElementById('confirmPurchase').addEventListener('click', function() {
+            alert('你還真付錢啊～我要帶著你的錢逃到天涯海角');
+            closeAd();  // 這裡還是繼續看廣告
+            const purchaseConfirmation = document.getElementById('purchaseConfirmation');
+            purchaseConfirmation.style.display = 'none';
+        });
+
+        // 當按下取消購買
+        document.getElementById('cancelPurchase').addEventListener('click', function() {
+            closeAd();  // 這裡也繼續看廣告
+            const purchaseConfirmation = document.getElementById('purchaseConfirmation');
+            purchaseConfirmation.style.display = 'none';
+        });
+    </script>
+
+</body>
+</html>
